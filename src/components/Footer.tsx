@@ -21,11 +21,9 @@ const Footer = () => {
             </div>
 
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Desenvolvedor Fullstack focado em criar aplicações modernas,
-              performáticas e com excelente experiência de usuário.
+              Desenvolvedor Fullstack
             </p>
           </div>
-
 
           {/* ================= SOCIAL ================= */}
           <div>
@@ -53,6 +51,7 @@ const Footer = () => {
 
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=rezendepiresgabriel@gmail.com"
+                target="_blank"
                 className="p-3 rounded-full bg-secondary hover:bg-primary/20 transition hover:scale-110"
               >
                 <Mail className="w-5 h-5" />

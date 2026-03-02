@@ -19,7 +19,7 @@ const CertificateModal = ({ isOpen, onClose, image, title }: Props) => {
           onClick={onClose}
         >
           <motion.div
-            className="bg-card rounded-xl p-4 max-w-3xl w-full"
+            className="bg-card rounded-xl p-4 max-w-xl w-full"
             initial={{ scale: 0.8, opacity: 0, y: 50 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.8, opacity: 0, y: 50 }}

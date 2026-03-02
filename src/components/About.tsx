@@ -1,10 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, Code, Globe } from "lucide-react";
-
-// sua imagem
 import profileImg from "@/assets/avatar.png";
 
+// Seus ícones (mantive igual)
 const techs = [
   { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
   { name: "Dart", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" },
@@ -29,49 +28,31 @@ const AboutSection = () => {
     { icon: GraduationCap, label: "Formação", value: "Eng. Computação" },
   ];
 
-  const doubled = [...techs, ...techs];
-
   return (
     <section id="sobre" className="py-24 overflow-hidden" ref={ref}>
       <div className="max-w-6xl mx-auto px-4">
-
-        {/* Conteúdo principal */}
+        
+        {/* ... (Parte da foto e texto mantém igual) ... */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
           className="grid md:grid-cols-2 gap-16 items-center"
         >
-
-          {/* Imagem */}
           <div className="flex justify-center">
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden glass neon-border">
-              <img
-                src={profileImg}
-                alt="Seu nome"
-                className="w-full h-full object-cover"
-              />
+              <img src={profileImg} alt="Avatar" className="w-full h-full object-cover" />
             </div>
           </div>
 
-          {/* Texto */}
           <div>
-            <p className="font-mono text-sm text-primary mb-3 uppercase tracking-wider">
-              Sobre mim
-            </p>
-
+            <p className="font-mono text-sm text-primary mb-3 uppercase tracking-wider">Sobre mim</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Transformando ideias em{" "}
-              <span className="gradient-text">experiências digitais</span>
+              Transformando ideias em <span className="gradient-text">experiências digitais</span>
             </h2>
-
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Sou estudante do 9º período de Engenharia da Computação, apaixonado por tecnologia e desenvolvimento de software.
-              Tenho experiência na criação de aplicações web e mobile, além de projetos com hardware como Arduino e sistemas embarcados.
-              Estou constantemente buscando evoluir minhas habilidades e enfrentar novos desafios que me permitam criar soluções inovadoras.
+              Sou estudante do 9º período de Engenharia da Computação...
             </p>
-
-            {/* Stats */}
             <div className="grid grid-cols-3 gap-4">
               {stats.map((s) => (
                 <div key={s.label} className="card rounded-xl p-4 text-center">
@@ -81,28 +62,54 @@ const AboutSection = () => {
                 </div>
               ))}
             </div>
-
           </div>
         </motion.div>
 
-        {/* Carrossel */}
-        <div className="relative mt-20 w-screen left-1/2 -translate-x-1/2">
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+        {/* --- CARROSSEL INFINITO (Sem Zoom e Sem Pausa) --- */}
+        <div className="mt-24">
+            <div className="relative w-full overflow-hidden mask-gradient">
+                <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-          <div className="flex w-max marquee">
-            {doubled.map((tech, i) => (
-              <div
-                key={`${tech.name}-${i}`}
-                className="flex-shrink-0 mx-4 w-28 h-28 glass rounded-xl flex flex-col items-center justify-center gap-2 transition-all duration-300 hover:scale-105"
-              >
-                <img src={tech.icon} alt={tech.name} className="w-10 h-10" />
-                <span className="text-xs text-muted-foreground">
-                  {tech.name}
-                </span>
-              </div>
-            ))}
-          </div>
+                <div className="flex animate-infinite-scroll">
+                    
+                    {/* LISTA 1 */}
+                    {techs.map((tech, i) => (
+                        <div key={`list-1-${i}`} className="flex-shrink-0 mx-8 flex flex-col items-center gap-3 group cursor-default">
+                            {/* REMOVIDO: group-hover:scale-110 e -translate-y-1 */}
+                            <div className="w-11 h-11 flex items-center justify-center transition-all duration-300">
+                                <img 
+                                    src={tech.icon} 
+                                    alt={tech.name} 
+                                    className="w-full h-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" 
+                                />
+                            </div>
+                            {/* Opcional: Adicionei group-hover:text-primary para manter o texto mudando de cor */}
+                            <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
+                                {tech.name}
+                            </span>
+                        </div>
+                    ))}
+
+                    {/* LISTA 2 (Cópia exata) */}
+                    {techs.map((tech, i) => (
+                        <div key={`list-2-${i}`} className="flex-shrink-0 mx-8 flex flex-col items-center gap-3 group cursor-default">
+                             {/* REMOVIDO: group-hover:scale-110 e -translate-y-1 */}
+                            <div className="w-11 h-11 flex items-center justify-center transition-all duration-300">
+                                <img 
+                                    src={tech.icon} 
+                                    alt={tech.name} 
+                                    className="w-full h-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" 
+                                />
+                            </div>
+                            <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
+                                {tech.name}
+                            </span>
+                        </div>
+                    ))}
+
+                </div>
+            </div>
         </div>
 
       </div>

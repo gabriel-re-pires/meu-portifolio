@@ -139,34 +139,6 @@ const Education = () => {
             </div>
           </div>
 
-          {/* ================= FORMAÇÃO (Mantido igual) ================= */}
-          <div className="md:col-start-2">
-            <div className="glass rounded-2xl p-6 text-center h-full flex flex-col">
-              <div className="flex items-center justify-center gap-2 mb-6">
-                <GraduationCap className="w-6 h-6 text-primary" />
-                <h3 className="text-lg font-bold uppercase">
-                  FORMAÇÃO
-                </h3>
-              </div>
-              <div className="text-left space-y-3 text-sm">
-                <a
-                  href="https://www.uemg.br/ituiutaba"
-                  target="_blank"
-                  className="block hover:text-primary"
-                >
-                  • Engenharia da Computação - UEMG
-                </a>
-                <a
-                  href="https://ifgoiano.edu.br/home/index.php/ipameri.html"
-                  target="_blank"
-                  className="block hover:text-primary"
-                >
-                  • Técnico em Redes de Computadores - IF
-                </a>
-              </div>
-            </div>
-          </div>
-
         </div>
 
         {/* ================= MODAL ================= */}

@@ -2,37 +2,79 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import GhostCursor from "./components/GhostCursor";
 import Background from "./components/Background";
+import PageWrapper from "./components/PageWrapper";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import ProjectsPage from "./pages/ProjectsPage";
-import { AnimatePresence } from "framer-motion";
-import { useLocation } from "react-router-dom";
-
+import HardwareProjectsPage from "./pages/HardwareProjectsPage";
+import SoftwareProjectsPage from "./pages/SoftwareProjectsPage";
 
 const queryClient = new QueryClient();
+
+const AppRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <PageWrapper>
+              <Index />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/software"
+          element={
+            <PageWrapper>
+              <SoftwareProjectsPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/programacao"
+          element={
+            <PageWrapper>
+              <SoftwareProjectsPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/hardware"
+          element={
+            <PageWrapper>
+              <HardwareProjectsPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <PageWrapper>
+              <NotFound />
+            </PageWrapper>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-
-      {/* BACKGROUND GLOBAL */}
       <Background />
-
-      {/* CURSOR */}
       <GhostCursor />
-
       <HashRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/:category" element={<ProjectsPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </HashRouter>
+      <AppRoutes />
+        </HashRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

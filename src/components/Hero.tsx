@@ -131,29 +131,6 @@ const Hero = () => {
 
           </div>
 
-          {/* REDES SOCIAIS */}
-          <div className="flex items-center justify-center gap-6">
-
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-110"
-            >
-              <Github className="w-6 h-6" />
-            </a>
-
-            <a
-              href="https://linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-110"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-
-          </div>
-
         </motion.div>
       </div>
 
