@@ -64,7 +64,7 @@ const AboutSection = () => {
           </div>
         </motion.div>
 
-        {/*CARROSSEL INFINITO  */}
+        {/*CARROSSEL INFINITO */}
         <div className="mt-24">
             <div className="relative w-full overflow-hidden mask-gradient">
                 <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
