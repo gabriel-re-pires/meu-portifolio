@@ -20,9 +20,8 @@ export const hardwareProjects: HardwareProject[] = [
       "Projeto com ESP32-S3 para captura e processamento de áudio com exibição em OLED.",
     thumbnail: "espectro/projeto_espectro.jpg",
     screenshots: [
+      "espectro/projeto_espectro.jpg",
       "espectro/photo-1.jpg",
-      "espectro/photo-2.jpg",
-      "espectro/photo-3.jpg",
     ],
     techStack: ["ESP32-S3", "OLED", "C/C++"],
     highlights: ["Leitura em tempo real", "Projeto compacto", "Visualização clara"],
