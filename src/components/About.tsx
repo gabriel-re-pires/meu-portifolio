@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { GraduationCap, Code, Globe } from "lucide-react";
 import profileImg from "@/assets/avatar.png";
 
-// Seus ícones (mantive igual)
+// Seus ícones
 const techs = [
   { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
   { name: "Dart", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" },
@@ -32,7 +32,6 @@ const AboutSection = () => {
     <section id="sobre" className="py-24 overflow-hidden" ref={ref}>
       <div className="max-w-6xl mx-auto px-4">
         
-        {/* ... (Parte da foto e texto mantém igual) ... */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -65,7 +64,7 @@ const AboutSection = () => {
           </div>
         </motion.div>
 
-        {/* --- CARROSSEL INFINITO (Sem Zoom e Sem Pausa) --- */}
+        {/*CARROSSEL INFINITO  */}
         <div className="mt-24">
             <div className="relative w-full overflow-hidden mask-gradient">
                 <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
@@ -76,7 +75,6 @@ const AboutSection = () => {
                     {/* LISTA 1 */}
                     {techs.map((tech, i) => (
                         <div key={`list-1-${i}`} className="flex-shrink-0 mx-8 flex flex-col items-center gap-3 group cursor-default">
-                            {/* REMOVIDO: group-hover:scale-110 e -translate-y-1 */}
                             <div className="w-11 h-11 flex items-center justify-center transition-all duration-300">
                                 <img 
                                     src={tech.icon} 
@@ -84,17 +82,15 @@ const AboutSection = () => {
                                     className="w-full h-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" 
                                 />
                             </div>
-                            {/* Opcional: Adicionei group-hover:text-primary para manter o texto mudando de cor */}
                             <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
                                 {tech.name}
                             </span>
                         </div>
                     ))}
 
-                    {/* LISTA 2 (Cópia exata) */}
+                    {/* LISTA 2 */}
                     {techs.map((tech, i) => (
                         <div key={`list-2-${i}`} className="flex-shrink-0 mx-8 flex flex-col items-center gap-3 group cursor-default">
-                             {/* REMOVIDO: group-hover:scale-110 e -translate-y-1 */}
                             <div className="w-11 h-11 flex items-center justify-center transition-all duration-300">
                                 <img 
                                     src={tech.icon} 

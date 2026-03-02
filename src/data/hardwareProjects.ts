@@ -18,7 +18,6 @@ export const hardwareProjects: HardwareProject[] = [
     shortDescription: "Visualização de espectro em tempo real.",
     fullDescription:
       "Projeto com ESP32-S3 para captura e processamento de áudio com exibição em OLED.",
-    // REMOVI O "dist/" DE TODOS OS CAMINHOS ABAIXO:
     thumbnail: "espectro/projeto_espectro.jpg",
     screenshots: [
       "espectro/photo-1.jpg",
@@ -36,7 +35,6 @@ export const hardwareProjects: HardwareProject[] = [
     shortDescription: "Desautenticação de redes em ambiente controlado.",
     fullDescription:
       "Dispositivo didático para estudar Wi-Fi em ambiente controlado, com foco em segurança de redes e aprendizado prático.",
-    // REMOVI O "dist/" DE TODOS OS CAMINHOS ABAIXO:
     thumbnail: "deauther/projeto_deauther.jpg",
     screenshots: [
       "deauther/photo-1.jpg",

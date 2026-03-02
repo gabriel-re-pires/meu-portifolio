@@ -14,7 +14,7 @@ const GhostCursor = () => {
     return () => window.removeEventListener("mousemove", move);
   }, []);
 
-  // suavização (leve, sem travar)
+  // suavização
   useEffect(() => {
     const lerp = (a, b, t) => a + (b - a) * t;
 

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
 
-/* ================= TYPEWRITER ================= */
 const TypewriterText = () => {
   const words = ["Oi, eu sou", "Hi, I am"];
 
@@ -21,7 +20,7 @@ const TypewriterText = () => {
     return () => clearTimeout(timeout);
   }, [blink]);
 
-  // Máquina de escrever
+  // Efeito Maquina de escrever
   useEffect(() => {
     if (subIndex === words[index].length && !isDeleting) {
       const timeout = setTimeout(() => setIsDeleting(true), PAUSE_TIME);
@@ -53,7 +52,6 @@ const TypewriterText = () => {
   );
 };
 
-/* ================= HERO ================= */
 const Hero = () => {
   const handleScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,

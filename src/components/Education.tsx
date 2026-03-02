@@ -2,9 +2,7 @@ import { GraduationCap } from "lucide-react";
 import { useState } from "react";
 import CertificateModal from "@/components/CertificateModal";
 
-// =========================================================
-// 1. IMPORTAÇÃO DAS IMAGENS (Necessário para o Vite/Deploy)
-// =========================================================
+//  IMPORTAÇÃO DAS IMAGENS
 
 // DIO
 import dioPython from "@/assets/certificates/fpf_dio.png";
@@ -24,9 +22,7 @@ import linuxBeginnerDev from "@/assets/certificates/bd_4linux.png";
 import linuxLogs from "@/assets/certificates/adl_4linux.png"; 
 
 
-// =========================================================
-// 2. LISTAS DE DADOS (Adicione novos aqui no futuro)
-// =========================================================
+// LISTAS DE DADOS
 
 const dioCerts = [
   { title: "Formação Python Fundamentals", img: dioPython },
@@ -63,8 +59,6 @@ const Education = () => {
     });
   };
 
-  // Pequeno componente para criar o botão (evita repetição de código)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const CertButton = ({ title, img }: { title: string; img: string }) => (
     <button
       onClick={() => openCert(img, title)}

@@ -70,7 +70,6 @@ const Projects = () => {
                   {category.description}
                 </p>
 
-                {/* BOTÃO ATUALIZADO AQUI 👇 */}
                 <Button 
                   className="
                     rounded-full px-8 py-6 text-md font-semibold

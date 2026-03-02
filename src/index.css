@@ -3,16 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =========================
-   🎨 DESIGN SYSTEM (DARK)
-========================= */
+/* DESIGN SYSTEM */
 @layer base {
   :root {
-    /* fundo mais escuro */
     --background: 222 47% 5%;
     --foreground: 210 20% 92%;
 
-    /* cards sólidos */
     --card: 222 25% 9%;
     --card-foreground: 210 20% 92%;
 
@@ -47,9 +43,7 @@
   }
 }
 
-/* =========================
-   🌍 BASE GLOBAL
-========================= */
+/* BASE GLOBAL */
 @layer base {
   * {
     @apply border-border;
@@ -88,17 +82,15 @@
   }
 }
 
-/* =========================
-   🧩 UTILIDADES (IMPORTANTE)
-========================= */
+/* UTILIDADES (IMPORTANTE) */
 @layer utilities {
 
-  /* ✅ CARD PADRÃO (SOLIDO) */
+  /* CARD PADRÃO (SOLIDO) */
   .card {
     @apply bg-card border border-border rounded-xl;
   }
 
-  /* ✅ CARD COM HOVER */
+  /* CARD COM HOVER */
   .card-hover {
     @apply bg-card border border-border rounded-xl 
            transition-all duration-300
@@ -106,7 +98,7 @@
            hover:shadow-[0_0_25px_-5px_hsl(var(--primary)/0.15)];
   }
 
-  /* ❌ GLASS (AGORA NÃO É TRANSPARENTE) */
+  /* GLASS*/
   .glass {
     @apply bg-card border border-border rounded-xl;
   }
@@ -145,11 +137,8 @@
   }
 }
 
-/* =========================
-   🔥 BACKGROUND
-========================= */
+/* BACKGROUND */
 
-/* GRID MAIS SUAVE */
 .grid-bg {
   position: absolute;
   inset: 0;
@@ -161,7 +150,6 @@
   background-size: 60px 60px;
 }
 
-/* GLOW SUAVE */
 .glow-bg {
   position: absolute;
   inset: 0;
@@ -173,27 +161,24 @@
   );
 }
 
-/* =========================
-   🔄 CARROSSEL INFINITO
-========================= */
+/* CARROSSEL INFINITO */
+
 @keyframes infinite-scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%); /* Move metade do tamanho total */
+    transform: translateX(-50%);
   }
 }
 
 .animate-infinite-scroll {
   animation: infinite-scroll 25s linear infinite;
-  /* Garante que a largura seja o conteúdo total */
   width: max-content; 
 }
 
-/* =========================
-   ✨ ANIMAÇÕES
-========================= */
+/* ANIMAÇÕES */
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
