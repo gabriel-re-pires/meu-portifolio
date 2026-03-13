@@ -1,0 +1,34 @@
+@keyframes floatingCharacter {
+  0% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+}
+
+.floating-character {
+  animation: floatingCharacter 3s ease-in-out infinite;
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.floating-hero {
+  bottom: 0;
+  right: 5%;
+}
+
+.floating-contact {
+  bottom: 0;
+  left: 0;
+}
+
+@media (max-width: 1024px) {
+  .floating-character {
+    display: none;
+  }
+}

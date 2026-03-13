@@ -1,6 +1,6 @@
 const Background = () => {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none">
+    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
 
       {/* GRID */}
       <div className="grid-bg opacity-20" />

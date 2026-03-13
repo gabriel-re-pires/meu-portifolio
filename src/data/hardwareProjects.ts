@@ -9,6 +9,7 @@ export type HardwareProject = {
   highlights: string[];
   githubLink: string;
   videoSrc?: string;
+  featured?: boolean;
 };
 
 export const hardwareProjects: HardwareProject[] = [
@@ -27,6 +28,7 @@ export const hardwareProjects: HardwareProject[] = [
     highlights: ["Leitura em tempo real", "Projeto compacto", "Visualização clara"],
     githubLink: "https://github.com/Artur-Brasileiro/Analisador-Espectro",
     videoSrc: "espectro/video_espectro.mp4",
+    featured: true,
   },
   {
     id: 4,
@@ -44,5 +46,6 @@ export const hardwareProjects: HardwareProject[] = [
     highlights: ["Uso didático", "Placa customizada", "Design compacto"],
     githubLink: "https://github.com/Artur-Brasileiro/Deauther-5GHz",
     videoSrc: "deauther/video_deauther.mp4",
+    featured: false,
   },
 ];

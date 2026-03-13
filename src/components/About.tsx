@@ -11,11 +11,19 @@ const techs = [
   { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
   { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
   { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-  { name: "Android", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" },
+  { name: "Android", icon: "https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/android/android-plain.svg" },
   { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
   { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
   { name: "GitHub", icon: "https://pngimg.com/uploads/github/github_PNG90.png" },
+  { name: "Arduino", icon: "https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/arduino/arduino-original-wordmark.svg" },
+  { name: "Firebase", icon: "https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/firebase/firebase-original.svg" },
+  { name: "Fusion", icon: "https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/fusion/fusion-original.svg" },
+  { name: "Linux", icon: "https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/linux/linux-original.svg" },
+  { name: "Photoshop", icon: "https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/photoshop/photoshop-original.svg" },
+  { name: "Raspberry Pi", icon: "https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/raspberrypi/raspberrypi-plain.svg" },
+  { name: "Unity", icon: "https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/unity/unity-plain.svg" },
+  { name: "Cisco", icon: "https://translatorswithoutborders.org/wp-content/uploads/2021/12/Cisco-logo.png" },
 ];
 
 const AboutSection = () => {
@@ -31,7 +39,7 @@ const AboutSection = () => {
   return (
     <section id="sobre" className="py-24 overflow-hidden" ref={ref}>
       <div className="max-w-6xl mx-auto px-4">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -44,14 +52,22 @@ const AboutSection = () => {
             </div>
           </div>
 
-          <div>
+          <div className="text-center md:text-left">
             <p className="font-mono text-sm text-primary mb-3 uppercase tracking-wider">Sobre mim</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Transformando ideias em <span className="gradient-text">experiências digitais</span>
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Sou estudante do 9º período de Engenharia da Computação...
-            </p>
+            <div className="text-white leading-relaxed mb-8 text-justify space-y-4">
+              <p>
+                Olá, eu sou um Engenheiro da Computação com experiência prática no desenvolvimento de projetos multidisciplinares. Meus projetos unem desenvolvimento de sites e aplicativos com a eletrônica, criando pontes entre o mundo digital e o físico.
+              </p>
+              <p>
+                Tenho facilidade em transitar entre diferentes tecnologias para encontrar a melhor solução para cada problema. Meu foco é projetar sistemas que sejam robustos no back-end, eficientes no hardware e extremamente amigáveis para o usuário final.
+              </p>
+              <p>
+                Estou sempre em busca do próximo desafio tecnológico. Vamos construir algo incrível juntos!
+              </p>
+            </div>
             <div className="grid grid-cols-3 gap-4">
               {stats.map((s) => (
                 <div key={s.label} className="card rounded-xl p-4 text-center">
@@ -64,48 +80,33 @@ const AboutSection = () => {
           </div>
         </motion.div>
 
-        {/*CARROSSEL INFINITO */}
-        <div className="mt-24">
-            <div className="relative w-full overflow-hidden mask-gradient">
-                <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-                <div className="flex animate-infinite-scroll">
-                    
-                    {/* LISTA 1 */}
-                    {techs.map((tech, i) => (
-                        <div key={`list-1-${i}`} className="flex-shrink-0 mx-8 flex flex-col items-center gap-3 group cursor-default">
-                            <div className="w-11 h-11 flex items-center justify-center transition-all duration-300">
-                                <img 
-                                    src={tech.icon} 
-                                    alt={tech.name} 
-                                    className="w-full h-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" 
-                                />
-                            </div>
-                            <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
-                                {tech.name}
-                            </span>
-                        </div>
-                    ))}
-
-                    {/* LISTA 2 */}
-                    {techs.map((tech, i) => (
-                        <div key={`list-2-${i}`} className="flex-shrink-0 mx-8 flex flex-col items-center gap-3 group cursor-default">
-                            <div className="w-11 h-11 flex items-center justify-center transition-all duration-300">
-                                <img 
-                                    src={tech.icon} 
-                                    alt={tech.name} 
-                                    className="w-full h-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" 
-                                />
-                            </div>
-                            <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
-                                {tech.name}
-                            </span>
-                        </div>
-                    ))}
-
+        {/* TECNOLOGIAS E FERRAMENTAS (ESTÁTICO) */}
+        <div className="mt-24 flex flex-col items-center">
+          <p className="font-mono text-sm text-primary mb-10 uppercase tracking-wider">Tecnologias e Ferramentas</p>
+          <div className="flex flex-wrap justify-center gap-6 max-w-[850px] mx-auto">
+            {techs.map((tech, i) => (
+              <div
+                key={i}
+                className="relative flex items-center justify-center w-[80px] h-[80px] sm:w-[96px] sm:h-[96px] bg-gradient-to-br from-background to-[#2a2a2a] rounded-3xl border border-white/5 shadow-[0_0_15px_#2a2a2a] transition-all duration-300 hover:-translate-y-2 hover:to-[#333333] hover:shadow-[0_0_25px_#333333] group cursor-default"
+              >
+                {/* TOOLTIP (Balão de fala branco) */}
+                <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-white text-zinc-900 text-xs font-bold rounded-lg opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out pointer-events-none z-50 shadow-xl whitespace-nowrap origin-bottom">
+                  {tech.name}
+                  {/* Triângulo apontando para baixo */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-[5px] border-transparent border-t-white"></div>
                 </div>
-            </div>
+
+                {/* Imagem (Ícone da tecnologia) */}
+                <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+                  <img
+                    src={tech.icon}
+                    alt={tech.name}
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

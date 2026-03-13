@@ -8,6 +8,8 @@ import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+import GhostCursor from "@/components/GhostCursor";
+
 const Index = () => {
   const location = useLocation();
 
@@ -40,7 +42,8 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative z-10 bg-transparent">
+      <GhostCursor />
       <Navbar />
       <Hero />
       <About />

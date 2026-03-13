@@ -5,6 +5,8 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
+import contactCharacter from "../assets/characters/contact-character.png";
+import "../styles/animations.css";
 
 const Contact = () => {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -66,8 +68,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="contato" className="py-20 relative overflow-hidden">
+      {/* Imagem Flutuante */}
+      <img 
+        src={contactCharacter} 
+        alt="Contact Character" 
+        className="floating-character floating-contact w-48 md:w-64 lg:w-80 h-auto" 
+      />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <p className="font-mono text-sm text-primary mb-3 uppercase tracking-wider">
             ENTRE
@@ -77,39 +85,26 @@ const Contact = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <div className="space-y-6">
+        <div className="flex flex-col items-center max-w-lg mx-auto">
+          {/* Ícones de Contato (Enfileirados e Circulares) */}
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
             {contactInfo.map((info, index) => (
-              <Card
+              <a
                 key={index}
-                className="p-4 hover:shadow-glow transition-all duration-300 bg-[#0a0a0a] border-border"
+                href={info.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={info.label}
+                className="w-16 h-16 rounded-full flex items-center justify-center bg-[#1a1a1a] border border-white/5 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:bg-[#252525] hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] group"
               >
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <info.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">{info.label}</p>
-                    {info.link ? (
-                      <a
-                        href={info.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground hover:text-primary transition-colors"
-                      >
-                        {info.value}
-                      </a>
-                    ) : (
-                      <p className="text-foreground">{info.value}</p>
-                    )}
-                  </div>
-                </div>
-              </Card>
+                <info.icon className="w-7 h-7 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
             ))}
           </div>
 
-          <Card className="p-8 bg-[#0a0a0a] border-border">
-            <h3 className="text-2xl font-bold mb-6">Envie uma Mensagem</h3>
+          {/* Cartão de Enviar Mensagem (Centralizado e Sólido) */}
+          <Card className="w-full p-8 !bg-[#121212] !bg-opacity-100 !backdrop-blur-none border-border shadow-2xl">
+            <h3 className="text-2xl font-bold mb-6 text-center">Envie uma Mensagem</h3>
 
             <form onSubmit={handleSubmit} className="space-y-4" noValidate>
               <div>
@@ -147,13 +142,18 @@ const Contact = () => {
                   id="message"
                   name="message"
                   placeholder="Sua mensagem..."
-                  rows={5}
-                  className="bg-secondary border-border"
+                  rows={4}
+                  className="bg-secondary border-border text-foreground resize-none overflow-hidden min-h-[100px]"
                   required
+                  onInput={(e) => {
+                    const target = e.target as HTMLTextAreaElement;
+                    target.style.height = "auto";
+                    target.style.height = `${target.scrollHeight}px`;
+                  }}
                 />
               </div>
 
-              <Button type="submit" className="w-full shadow-glow" disabled={status === "loading"}>
+              <Button type="submit" className="w-full shadow-glow mt-4" disabled={status === "loading"}>
                 {status === "loading" ? "Enviando..." : "Enviar Mensagem"}
               </Button>
 

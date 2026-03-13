@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
+import Background from "./Background";
+import heroCharacter from "../assets/characters/hero-character.png";
+import "../styles/animations.css";
 
 const TypewriterText = () => {
   const words = ["Oi, eu sou", "Hi, I am"];
@@ -44,9 +47,8 @@ const TypewriterText = () => {
     <span className="inline-flex items-center">
       {words[index].substring(0, subIndex)}
       <span
-        className={`ml-2 w-[3px] h-[1em] bg-primary transition-opacity ${
-          blink ? "opacity-100" : "opacity-0"
-        }`}
+        className={`ml-2 w-[3px] h-[1em] bg-primary transition-opacity ${blink ? "opacity-100" : "opacity-0"
+          }`}
       />
     </span>
   );
@@ -63,8 +65,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center">
-
+    <section className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden">
+      <Background />
       {/* CONTEÚDO */}
       <div className="relative z-10 w-full max-w-5xl px-4 text-center">
 
@@ -75,9 +77,9 @@ const Hero = () => {
         >
 
           {/* TÍTULO */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-6 drop-shadow-sm">
 
-            <span className="block md:inline text-foreground mr-2">
+            <span className="block md:inline-block text-foreground mr-2 min-h-[1.2em]">
               <TypewriterText />
             </span>
 
@@ -88,43 +90,26 @@ const Hero = () => {
           </h1>
 
           {/* SUBTEXTO */}
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
-            Engenheiro de Computação & Desenvolvedor Fullstack.
-            Construindo aplicações modernas e experiências digitais de alto nível.
+          <p className="text-lg sm:text-xl md:text-2xl text-[#fffafa] max-w-2xl mx-auto mb-8 font-medium">
+            Engenheiro & Desenvolvedor Fullstack
+            <br />
+            Construindo aplicações para moldar o futuro.
           </p>
 
-          {/* STATUS */}
-          <div className="flex flex-wrap justify-center gap-2 text-sm text-muted-foreground mb-10">
-            <span>+5 projetos reais</span>
-            <span>•</span>
-            <span>Disponível para freelas</span>
-          </div>
 
           {/* BOTÕES */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-14">
 
             <a
               href="#projetos"
               onClick={(e) => handleScroll(e, "projetos")}
-              className="w-full sm:w-auto px-8 py-3 rounded-full font-semibold 
-              bg-primary text-primary-foreground
+              className="w-full sm:w-auto px-8 py-4 rounded-lg font-bold text-lg
+              bg-primary text-primary-foreground shadow-[0_0_20px_-5px_hsl(var(--primary)/0.5)]
               transition-all duration-300
-              hover:scale-105 hover:shadow-glow
+              hover:scale-105 hover:shadow-[0_0_30px_-5px_hsl(var(--primary)/0.7)]
               active:scale-95"
             >
               Ver Projetos
-            </a>
-
-            <a
-              href="#contato"
-              onClick={(e) => handleScroll(e, "contato")}
-              className="w-full sm:w-auto px-8 py-3 rounded-full font-semibold 
-              bg-secondary text-secondary-foreground border border-border
-              transition-all duration-300
-              hover:scale-105 hover:border-primary/40 hover:bg-secondary/80
-              active:scale-95"
-            >
-              Entrar em Contato
             </a>
 
           </div>
@@ -142,6 +127,13 @@ const Hero = () => {
       >
         <ArrowDown className="w-6 h-6 opacity-60" />
       </motion.a>
+
+      {/* Imagem Flutuante */}
+      <img 
+        src={heroCharacter} 
+        alt="Hero Character" 
+        className="floating-character floating-hero w-48 md:w-64 lg:w-80 h-auto" 
+      />
 
     </section>
   );

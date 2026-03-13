@@ -10,6 +10,7 @@ export type SoftwareProject = {
   highlights: string[];
   githubLink: string;
   siteLink?: string;
+  featured?: boolean;
 };
 
 export const softwareProjects: SoftwareProject[] = [
@@ -31,6 +32,7 @@ export const softwareProjects: SoftwareProject[] = [
     highlights: ["Layout responsivo", "UX focada em estudo", "Deploy em produção"],
     githubLink: "https://github.com/Artur-Brasileiro/English-Hub",
     siteLink: "https://playenglishup.com.br/",
+    featured: true,
   },
   {
     id: 1,
@@ -48,5 +50,6 @@ export const softwareProjects: SoftwareProject[] = [
     techStack: ["React", "JavaScript", "CSS"],
     highlights: ["Interface conversacional", "Integração com IA", "Estrutura modular"],
     githubLink: "https://github.com/Artur-Brasileiro/Chatbot-React",
+    featured: false,
   },
 ];

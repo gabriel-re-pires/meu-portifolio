@@ -36,15 +36,15 @@ const GhostCursor = () => {
 
   return (
     <div
-      className="fixed pointer-events-none z-50"
+      className="hidden md:block fixed pointer-events-none z-[-1]"
       style={{
-        transform: `translate(${pos.x - 120}px, ${pos.y - 120}px)`,
-        width: 240,
-        height: 240,
+        transform: `translate(${pos.x - 150}px, ${pos.y - 150}px)`,
+        width: 300,
+        height: 300,
         borderRadius: "50%",
         background:
-          "radial-gradient(circle, rgba(0, 255, 200, 0.45) 0%, rgba(0,255,200,0.08) 40%, transparent 70%)",
-        filter: "blur(70px)",
+          "radial-gradient(circle, hsl(var(--primary) / 0.5) 0%, hsl(var(--primary) / 0.15) 30%, transparent 60%)",
+        filter: "blur(60px)",
         mixBlendMode: "screen", // deixa mais suave no fundo escuro
       }}
     />

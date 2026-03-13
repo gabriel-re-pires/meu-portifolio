@@ -57,6 +57,11 @@ const SoftwareProjectsPage = () => {
                   <div>
                     <h3 className="font-display font-semibold">{project.name}</h3>
                     <p className="text-sm text-muted-foreground">{project.shortDescription}</p>
+                    {project.featured && (
+                      <span className="text-[10px] text-primary/90 border border-primary/30 bg-primary/10 px-1.5 py-0.5 rounded uppercase tracking-wider mt-1.5 inline-block">
+                        Destaque
+                      </span>
+                    )}
                   </div>
                 </div>
               </button>
@@ -91,7 +96,14 @@ const SoftwareProjectsPage = () => {
               </div>
 
               <div>
-                <h3 className="font-display text-2xl font-bold">{activeProject.name}</h3>
+                <div className="flex items-center gap-3">
+                  <h3 className="font-display text-2xl font-bold">{activeProject.name}</h3>
+                  {activeProject.featured && (
+                    <span className="text-xs font-bold text-primary border border-primary/50 bg-primary/10 px-2 py-1 rounded uppercase tracking-wider">
+                      ★ Destaque
+                    </span>
+                  )}
+                </div>
                 <p className="text-muted-foreground mt-2">{activeProject.fullDescription}</p>
               </div>
 

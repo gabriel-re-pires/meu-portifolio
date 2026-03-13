@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimatePresence } from "framer-motion";
 import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import GhostCursor from "./components/GhostCursor";
-import Background from "./components/Background";
 import PageWrapper from "./components/PageWrapper";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -70,8 +69,6 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <Background />
-      <GhostCursor />
       <HashRouter>
       <AppRoutes />
         </HashRouter>
