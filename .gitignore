@@ -12,6 +12,17 @@ dist
 dist-ssr
 *.local
 
+# Vite cache / build
+.vite
+.cache
+
+# Variaveis de ambiente / segredos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

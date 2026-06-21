@@ -1,40 +1,28 @@
-import { GraduationCap } from "lucide-react";
 import { useState } from "react";
-import CertificateModal from "@/components/CertificateModal";
+import { useLang } from "@/contexts/LanguageContext";
+import CertificateModal from "./CertificateModal";
 
-//  IMPORTAÇÃO DAS IMAGENS
-
-// DIO
 import dioPython from "@/assets/certificates/fpf_dio.png";
-
-// UDEMY
 import udemyPentest from "@/assets/certificates/pehes_udemy.png";
 import udemyWifi from "@/assets/certificates/tdiarsf_udemy.png";
 import udemyEthical from "@/assets/certificates/fdeh_udemy.png";
-
-// 4LINUX
 import linuxBeginner from "@/assets/certificates/lbico_4linux.png";
 import linuxHtml from "@/assets/certificates/mwch_4linux.png";
 import linuxFund from "@/assets/certificates/lf_4linux.png";
 import linuxDevops from "@/assets/certificates/de_4linux.png";
 import linuxBigData from "@/assets/certificates/bde_4linux.png";
 import linuxBeginnerDev from "@/assets/certificates/bd_4linux.png";
-import linuxLogs from "@/assets/certificates/adl_4linux.png"; 
+import linuxLogs from "@/assets/certificates/adl_4linux.png";
 
+type Cert = { title: string; img: string };
 
-// LISTAS DE DADOS
-
-const dioCerts = [
-  { title: "Formação Python Fundamentals", img: dioPython },
-];
-
-const udemyCerts = [
+const DIO: Cert[] = [{ title: "Formação Python Fundamentals", img: dioPython }];
+const UDEMY: Cert[] = [
   { title: "Pentest e Hacking em Sites", img: udemyPentest },
   { title: "Técnicas de Invasão WiFi", img: udemyWifi },
   { title: "Fundamentos de Ethical Hacking", img: udemyEthical },
 ];
-
-const fourLinuxCerts = [
+const LINUX: Cert[] = [
   { title: "Linux Beginner In Cloud", img: linuxBeginner },
   { title: "Mundo web com HTML5", img: linuxHtml },
   { title: "Linux Fundamentals", img: linuxFund },
@@ -45,105 +33,39 @@ const fourLinuxCerts = [
 ];
 
 const Education = () => {
-  const [modal, setModal] = useState({
-    open: false,
-    image: "",
-    title: "",
-  });
+  const [modal, setModal] = useState<Cert | null>(null);
+  const { t } = useLang();
 
-  const openCert = (image: string, title: string) => {
-    setModal({
-      open: true,
-      image,
-      title,
-    });
-  };
-
-  const CertButton = ({ title, img }: { title: string; img: string }) => (
-    <button
-      onClick={() => openCert(img, title)}
-      className="block hover:text-primary text-left w-full transition-colors"
-    >
-      • {title}
-    </button>
+  const Column = ({ prov, list }: { prov: string; list: Cert[] }) => (
+    <div className="box cert">
+      <div className="prov">{prov}</div>
+      <ul>
+        {list.map((c) => (
+          <li key={c.title} onClick={() => setModal(c)}>{c.title}</li>
+        ))}
+      </ul>
+    </div>
   );
 
   return (
-    <section id="educacao" className="py-20">
-      <div className="max-w-6xl mx-auto px-4">
-
-        {/* TÍTULO */}
-        <div className="text-center mb-16">
-          <p className="font-mono text-sm text-primary mb-3 uppercase tracking-wider">
-            Minhas
-          </p>
-          <h2 className="text-4xl font-bold">
-            CERTIFICAÇÕES
-          </h2>
+    <section className="section" id="certificacoes">
+      <div className="wrap">
+        <div className="section-head">
+          <div className="label">{t("edu.label")}</div>
+          <h2>{t("edu.title")}</h2>
         </div>
-
-        {/* GRID */}
-        <div className="grid md:grid-cols-3 gap-8">
-
-          {/* ================= DIO ================= */}
-          <div className="glass rounded-2xl p-6 text-center h-full">
-            <a href="https://www.dio.me/" target="_blank">
-              <img
-                src="https://hermes.digitalinnovation.one/assets/diome/logo.png"
-                alt="DIO"
-                className="h-16 mx-auto mb-6 hover:scale-105 transition"
-              />
-            </a>
-            <div className="text-left space-y-2 text-sm">
-              {dioCerts.map((cert, index) => (
-                <CertButton key={index} title={cert.title} img={cert.img} />
-              ))}
-            </div>
-          </div>
-
-          {/* ================= UDEMY ================= */}
-          <div className="glass rounded-2xl p-6 text-center h-full">
-            <a href="https://www.udemy.com/" target="_blank">
-              <img
-                src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy-inverted.svg"
-                alt="Udemy"
-                className="h-16 mx-auto mb-6 hover:scale-105 transition"
-              />
-            </a>
-            <div className="text-left space-y-2 text-sm">
-              {udemyCerts.map((cert, index) => (
-                <CertButton key={index} title={cert.title} img={cert.img} />
-              ))}
-            </div>
-          </div>
-
-          {/* ================= 4LINUX ================= */}
-          <div className="glass rounded-2xl p-6 text-center h-full">
-            <a href="https://4linux.com.br/" target="_blank">
-              <img
-                src="https://4linux.com.br/cursos/wp-content/uploads/sites/2/2021/04/logo-4linux-13.svg"
-                alt="4Linux"
-                className="mx-auto mb-6 hover:scale-105 transition h-14 object-contain"
-              />
-            </a>
-            <div className="text-left space-y-2 text-sm">
-              {fourLinuxCerts.map((cert, index) => (
-                <CertButton key={index} title={cert.title} img={cert.img} />
-              ))}
-            </div>
-          </div>
-
+        <div className="cert-grid">
+          <Column prov="DIO" list={DIO} />
+          <Column prov="Udemy" list={UDEMY} />
+          <Column prov="4Linux" list={LINUX} />
         </div>
-
-        {/* ================= MODAL ================= */}
-        <CertificateModal
-          isOpen={modal.open}
-          onClose={() => setModal({ ...modal, open: false })}
-          image={modal.image}
-          title={modal.title}
-        />
-
       </div>
+      <CertificateModal
+        open={!!modal}
+        image={modal?.img}
+        title={modal?.title}
+        onClose={() => setModal(null)}
+      />
     </section>
   );
 };
