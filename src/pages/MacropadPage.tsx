@@ -57,6 +57,11 @@ const MacropadPage = () => {
             <div key={s.title.pt} className="proj-section">
               <h3>{s.title[lang]}</h3>
               <p>{s.body[lang]}</p>
+              {s.image && (
+                <div className="proj-section-media">
+                  <ProjectImage src={s.image} name={s.title[lang]} showName={false} />
+                </div>
+              )}
             </div>
           ))}
         </div>

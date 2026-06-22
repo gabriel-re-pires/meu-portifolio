@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLang } from "@/contexts/LanguageContext";
-import { LANGS } from "@/i18n/dict";
 import { scrollToSection, scrollToTop } from "@/lib/scroll";
 
 const LINKS = [
@@ -14,11 +13,10 @@ const LINKS = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { cycleTheme } = useTheme();
-  const { lang, setLang, t } = useLang();
+  const { t } = useLang();
 
   const goTo = (id: string) => {
     setOpen(false);
@@ -34,8 +32,6 @@ const Navbar = () => {
     if (location.pathname !== "/") navigate("/");
     else scrollToTop(true);
   };
-
-  const currentShort = LANGS.find((l) => l.id === lang)?.short ?? "PT";
 
   return (
     <nav className={open ? "open" : ""}>
@@ -57,38 +53,6 @@ const Navbar = () => {
             title={t("nav.theme")}
             onClick={cycleTheme}
           />
-
-          <div className="lang">
-            <button
-              type="button"
-              className="lang-btn"
-              aria-label={t("nav.language")}
-              title={t("nav.language")}
-              onClick={() => setLangOpen((o) => !o)}
-            >
-              {currentShort} ▾
-            </button>
-            {langOpen && (
-              <>
-                <div className="lang-backdrop" onClick={() => setLangOpen(false)} />
-                <div className="lang-menu">
-                  {LANGS.map((l) => (
-                    <button
-                      key={l.id}
-                      type="button"
-                      className={l.id === lang ? "active" : ""}
-                      onClick={() => {
-                        setLang(l.id);
-                        setLangOpen(false);
-                      }}
-                    >
-                      {l.label}
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
 
           <button type="button" className="hamb" aria-label="Menu" onClick={() => setOpen((o) => !o)}>
             <span /><span /><span />

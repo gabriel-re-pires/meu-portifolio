@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useLang } from "@/contexts/LanguageContext";
+import { LANGS } from "@/i18n/dict";
 
 const GithubIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z" /></svg>
@@ -17,7 +19,8 @@ const MailIcon = () => (
 );
 
 const Footer = () => {
-  const { t } = useLang();
+  const { lang, setLang, t } = useLang();
+  const [langOpen, setLangOpen] = useState(false);
   return (
     <footer>
     <div className="wrap">
@@ -26,11 +29,44 @@ const Footer = () => {
           <div className="brand"><span className="chip" />Gabriel R. Pires</div>
           <div className="sub">{t("footer.sub")}</div>
         </div>
-        <div className="foot-social">
-          <a href="https://github.com/gabriel-re-pires" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><GithubIcon /></a>
-          <a href="https://www.linkedin.com/in/grp-0892ret/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><LinkedinIcon /></a>
-          <a href="https://wa.me/5534993417077" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><WhatsappIcon /></a>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rezendepiresgabriel@gmail.com" title="Email" aria-label="Email" target="_blank" rel="noopener noreferrer"><MailIcon /></a>
+        <div className="foot-right">
+          <div className="foot-social">
+            <a href="https://github.com/gabriel-re-pires" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><GithubIcon /></a>
+            <a href="https://www.linkedin.com/in/grp-0892ret/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><LinkedinIcon /></a>
+            <a href="https://wa.me/5534993417077" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><WhatsappIcon /></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rezendepiresgabriel@gmail.com" title="Email" aria-label="Email" target="_blank" rel="noopener noreferrer"><MailIcon /></a>
+          </div>
+          <div className="lang lang-up">
+            <button
+              type="button"
+              className="lang-btn"
+              aria-label={t("nav.language")}
+              title={t("nav.language")}
+              onClick={() => setLangOpen((o) => !o)}
+            >
+              {LANGS.find((l) => l.id === lang)?.short ?? "PT"} ▾
+            </button>
+            {langOpen && (
+              <>
+                <div className="lang-backdrop" onClick={() => setLangOpen(false)} />
+                <div className="lang-menu">
+                  {LANGS.map((l) => (
+                    <button
+                      key={l.id}
+                      type="button"
+                      className={l.id === lang ? "active" : ""}
+                      onClick={() => {
+                        setLang(l.id);
+                        setLangOpen(false);
+                      }}
+                    >
+                      {l.label}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
       <div className="copy">© {new Date().getFullYear()} Gabriel R. Pires — {t("footer.rights")}</div>
