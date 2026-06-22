@@ -1,6 +1,6 @@
 import { Localized } from "@/i18n/dict";
 
-type Section = { title: Localized; body: Localized };
+type Section = { title: Localized; body: Localized; image?: string };
 
 // Macropad Inteligente — listado em Hardware e Software, com página dedicada (/macropad).
 export const macropadBase = {
@@ -35,6 +35,7 @@ export const macropadBase = {
         en: "The motivation behind this project is to create a tool that truly adapts to the user's workflow, instead of being just a generic keyboard with fixed shortcuts. By integrating an OLED display and developing a smart desktop application, the Macropad knows exactly what you're doing. Open your code editor and the 18 keys and the screen take on build, debug and format functions. Switch to the browser and the shortcuts change instantly. The real challenge and differentiator of this project is building the complete bridge: designing the board itself, fabricating the prototype, soldering the components, and making sure the code (C++ and Python) talks perfectly with the operating system.",
         ja: "このプロジェクトの動機は、固定ショートカットだけの汎用キーボードではなく、ユーザーのワークフローに本当に適応するツールを作ることです。OLEDディスプレイを統合し、インテリジェントなデスクトップアプリを開発することで、Macropadはあなたが何をしているかを正確に把握します。コードエディタを開けば、18個のキーと画面はビルド・デバッグ・整形の機能になります。ブラウザに切り替えれば、ショートカットも瞬時に変わります。このプロジェクトの大きな挑戦であり差別化点は、完全な橋渡しを構築すること——基板そのものを設計し、試作を製造し、部品をはんだ付けし、コード（C++ とPython）がOSと完璧に連携することを保証することです。",
       },
+      image: "projetos/macropad/02.webp",
     },
     {
       title: {
