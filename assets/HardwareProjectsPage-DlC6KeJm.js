@@ -1,0 +1,1 @@
+import{u as s,r as o,h as l,b as n,j as c}from"./index-Cg0TpOGQ.js";import{P as j}from"./ProjectGallery-OzixcKKm.js";const d=()=>{const{lang:a,t:r}=s(),e=o.useMemo(()=>l.map(t=>n(t,a,r)),[a,r]);return c.jsx(j,{title:"// Hardware",intro:r("gallery.hardwareIntro"),projects:e})};export{d as default};

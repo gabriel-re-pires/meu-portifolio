@@ -1,0 +1,1 @@
+import{u as t,j as s,L as e}from"./index-Cg0TpOGQ.js";const o=()=>{const{t:n}=t();return s.jsxs("div",{className:"nf",children:[s.jsx("h1",{children:"404"}),s.jsx("p",{children:n("nf.text")}),s.jsx(e,{to:"/",className:"btn",children:n("nf.home")})]})};export{o as default};
