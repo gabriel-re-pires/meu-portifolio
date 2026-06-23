@@ -45,7 +45,7 @@ export const hardwareProjects: HardwareProject[] = [
       { pt: "Visualização clara", zh: "清晰的可视化", en: "Clear visualization", ja: "見やすい表示" },
     ],
     githubLink: "https://github.com/Artur-Brasileiro/Analisador-Espectro",
-    videoSrc: "projetos/espectro/video.mp4",
+    videoSrc: "https://youtu.be/S4FoTu5aA84",
     featured: false,
   },
   {

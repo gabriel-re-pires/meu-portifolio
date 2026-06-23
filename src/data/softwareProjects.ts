@@ -1,5 +1,4 @@
 import { Localized } from "@/i18n/dict";
-import { macropadBase } from "./macropad";
 
 export type SoftwareProject = {
   id: number;
@@ -153,12 +152,6 @@ export const softwareProjects: SoftwareProject[] = [
     techStack: [],
     highlights: [],
     githubLink: "https://github.com/gabriel-re-pires/Buscador_TCC",
-    featured: false,
-  },
-  {
-    id: 16,
-    category: "desktop",
-    ...macropadBase,
     featured: false,
   },
   {

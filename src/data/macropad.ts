@@ -50,6 +50,7 @@ export const macropadBase = {
         en: "Drawing the schematic and the complete board routing in EasyEDA. The layout was carefully planned to fit the 18 mechanical keys and the OLED display ergonomically.",
         ja: "EasyEDAで回路図の作成と基板全体の配線を実施。18個のメカニカルキーとOLEDディスプレイを人間工学的に配置できるよう、レイアウトを入念に計画しました。",
       },
+      image: "projetos/macropad/03.webp",
     },
     {
       title: {
