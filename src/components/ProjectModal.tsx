@@ -4,6 +4,12 @@ import ProjectImage from "./ProjectImage";
 
 const BASE = import.meta.env.BASE_URL;
 
+// Extrai o ID de um link do YouTube (shorts, watch ou youtu.be). Retorna null se não for YouTube.
+const youTubeId = (url: string): string | null => {
+  const m = url.match(/(?:youtube\.com\/(?:shorts\/|watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/);
+  return m ? m[1] : null;
+};
+
 export type Media = { type: "image" | "video"; src: string };
 
 export type GalleryProject = {
@@ -64,7 +70,17 @@ const ProjectModal = ({ project, onClose, onMore, moreLabel, moreInside }: Props
           <div className="proj-media">
             <div className={`proj-media-main${project.logo && current.src === project.thumbnail ? " is-logo" : ""}`}>
               {current.type === "video" ? (
-                <video key={current.src} src={`${BASE}${current.src}`} poster={`${BASE}${project.thumbnail}`} controls />
+                youTubeId(current.src) ? (
+                  <iframe
+                    key={current.src}
+                    src={`https://www.youtube.com/embed/${youTubeId(current.src)}`}
+                    title={project.name}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                ) : (
+                  <video key={current.src} src={`${BASE}${current.src}`} poster={`${BASE}${project.thumbnail}`} controls />
+                )
               ) : (
                 <ProjectImage key={current.src} src={current.src} name={project.name} />
               )}
