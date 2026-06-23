@@ -77,7 +77,7 @@ export const hardwareProjects: HardwareProject[] = [
       { pt: "Design compacto", zh: "紧凑设计", en: "Compact design", ja: "コンパクトな設計" },
     ],
     githubLink: "https://github.com/gabriel-re-pires/Deauther_BW16_5GHz",
-    videoSrc: "projetos/deauther/video.mp4",
+    videoSrc: "https://youtu.be/ivRvoBY3Flg",
     featured: false,
   },
   {
