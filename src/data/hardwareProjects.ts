@@ -37,8 +37,6 @@ export const hardwareProjects: HardwareProject[] = [
     screenshots: [
       "projetos/espectro/01.jpg",
       "projetos/espectro/02.jpg",
-      "projetos/espectro/03.jpg",
-      "projetos/espectro/04.jpg",
     ],
     techStack: ["ESP32-S3", "OLED", "C/C++"],
     highlights: [
@@ -80,6 +78,34 @@ export const hardwareProjects: HardwareProject[] = [
     ],
     githubLink: "https://github.com/gabriel-re-pires/Deauther_BW16_5GHz",
     videoSrc: "projetos/deauther/video.mp4",
+    featured: false,
+  },
+  {
+    id: 6,
+    name: "Robô Seguidor de Linha",
+    shortDescription: {
+      pt: "Carrinho autônomo com ESP32 e controle Xbox.",
+      zh: "搭载 ESP32 与 Xbox 手柄的自主小车。",
+      en: "Autonomous car with ESP32 and Xbox control.",
+      ja: "ESP32とXboxコントローラーの自律走行カー。",
+    },
+    fullDescription: {
+      pt: "Versão repaginada de um carrinho seguidor de linha com ESP32: sensores infravermelhos TCRT5000 para o modo autônomo e um modo manual via joystick Xbox Series X por Bluetooth (estilo Forza). Conta com farol de LED, bateria Li-ion recarregável (2× TP4056 em série) e cases impressas em 3D. Driver L298N controlado por PWM direto nos pinos IN, sem usar ENA/ENB.",
+      zh: "基于 ESP32 重新打造的循线小车：TCRT5000 红外传感器用于自主模式，并支持通过蓝牙的 Xbox Series X 手柄手动驾驶（Forza 风格）。配有 LED 大灯、可充电锂电池（2× TP4056 串联）和 3D 打印外壳。L298N 驱动通过 IN 引脚直接 PWM 控制，不使用 ENA/ENB。",
+      en: "A revamped line-following car powered by an ESP32: TCRT5000 infrared sensors for autonomous mode plus a manual mode driven by an Xbox Series X controller over Bluetooth (Forza-style). It features an LED headlight, a rechargeable Li-ion battery (2× TP4056 in series) and 3D-printed cases. The L298N driver is controlled by PWM directly on the IN pins, without using ENA/ENB.",
+      ja: "ESP32で刷新したライントレースカー：TCRT5000赤外線センサーによる自律モードに加え、Bluetooth経由のXbox Series Xコントローラーで操作する手動モード（Forza風）を搭載。LEDヘッドライト、充電式Li-ionバッテリー（2× TP4056直列）、3Dプリントケースを備える。L298NドライバーはENA/ENBを使わず、INピンへのPWMで直接制御。",
+    },
+    thumbnail: "projetos/seglinha/01.webp",
+    screenshots: [
+      "projetos/seglinha/01.webp",
+      "projetos/seglinha/02.webp",
+    ],
+    techStack: ["ESP32", "C/C++", "L298N", "Bluetooth", "Impressão 3D"],
+    highlights: [
+      { pt: "Modo autônomo + manual", zh: "自主 + 手动模式", en: "Autonomous + manual modes", ja: "自律＋手動モード" },
+      { pt: "Controle Xbox por Bluetooth", zh: "蓝牙 Xbox 手柄控制", en: "Xbox control over Bluetooth", ja: "BluetoothのXbox操作" },
+      { pt: "Bateria Li-ion recarregável", zh: "可充电锂电池", en: "Rechargeable Li-ion battery", ja: "充電式Li-ionバッテリー" },
+    ],
     featured: false,
   },
   {
