@@ -348,6 +348,9 @@ footer{border-top:2px solid var(--line);background:var(--bg-2);padding:48px 0 30
 .proj-card-thumb.is-logo img,.pthumb.is-logo img{object-fit:contain;padding:16px;background:#fff;}
 .proj-media-main.is-logo,.proj-media-main.is-logo img{background:#fff;}
 .proj-media-main.is-logo img{object-fit:contain;padding:24px;}
+/* JouleHub: fundo off-white em vez de branco puro */
+.is-logo:has(img[src*="joulehub"]),
+.is-logo:has(img[src*="joulehub"]) img{background:#f6f7f8;}
 .proj-empty{color:var(--muted);text-align:center;padding:48px 0;}
 .proj-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;
   background:var(--inset);background-image:repeating-linear-gradient(0deg,var(--line) 0 1px,transparent 1px 5px);}
