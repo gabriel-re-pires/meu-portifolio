@@ -19,7 +19,7 @@ const ProjectImage = ({ src, name, showName = true }: Props) => {
     );
   }
 
-  return <img src={`${BASE}${src}`} alt={name} loading="lazy" onError={() => setFailed(true)} />;
+  return <img src={`${BASE}${src}`} alt={name} loading="lazy" decoding="async" onError={() => setFailed(true)} />;
 };
 
 export default ProjectImage;

@@ -25,7 +25,7 @@ const About = () => {
             <div className="id-frame">
               <div className="tag-corner">ID:01</div>
               <div className="char-holder" style={{ ["--avatar" as string]: `url(${avatar})` } as React.CSSProperties}>
-                <img className="avatar-img" src={avatar} alt="Personagem — Gabriel" />
+                <img className="avatar-img" src={avatar} alt="Personagem — Gabriel" loading="lazy" decoding="async" />
               </div>
             </div>
             <div className="id-meta">

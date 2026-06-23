@@ -5,10 +5,10 @@ import heroRed from "./hero-red.gif";
 import heroBlue from "./hero-blue.gif";
 import heroPink from "./hero-pink.gif";
 
-import avatarOrange from "./avatar-orange.png";
-import avatarRed from "./avatar-red.png";
-import avatarBlue from "./avatar-blue.png";
-import avatarPink from "./avatar-pink.png";
+import avatarOrange from "./avatar-orange.webp";
+import avatarRed from "./avatar-red.webp";
+import avatarBlue from "./avatar-blue.webp";
+import avatarPink from "./avatar-pink.webp";
 
 export const heroByTheme: Record<Theme, string> = {
   orange: heroOrange,
