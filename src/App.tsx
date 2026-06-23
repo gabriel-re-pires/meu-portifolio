@@ -1,16 +1,18 @@
 import { HashRouter, Routes, Route, useLocation, useNavigationType } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ReactNode, useLayoutEffect } from "react";
+import { ReactNode, Suspense, lazy, useLayoutEffect } from "react";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Index from "@/pages/Index";
-import SoftwareProjectsPage from "@/pages/SoftwareProjectsPage";
-import HardwareProjectsPage from "@/pages/HardwareProjectsPage";
-import MacropadPage from "@/pages/MacropadPage";
-import NotFound from "@/pages/NotFound";
 import { NAV_HEIGHT } from "@/lib/scroll";
+
+// Home carrega imediata (primeira pintura); demais paginas viram chunks sob demanda.
+const SoftwareProjectsPage = lazy(() => import("@/pages/SoftwareProjectsPage"));
+const HardwareProjectsPage = lazy(() => import("@/pages/HardwareProjectsPage"));
+const MacropadPage = lazy(() => import("@/pages/MacropadPage"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 // guarda a posicao de scroll de cada entrada do historico (restaura no "voltar")
 const scrollMemory = new Map<string, number>();
@@ -58,14 +60,16 @@ const AppRoutes = () => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Page><Index /></Page>} />
-        <Route path="/software" element={<Page><SoftwareProjectsPage /></Page>} />
-        <Route path="/programacao" element={<Page><SoftwareProjectsPage /></Page>} />
-        <Route path="/hardware" element={<Page><HardwareProjectsPage /></Page>} />
-        <Route path="/macropad" element={<Page><MacropadPage /></Page>} />
-        <Route path="*" element={<Page><NotFound /></Page>} />
-      </Routes>
+      <Suspense fallback={<div style={{ minHeight: "100vh" }} />}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Page><Index /></Page>} />
+          <Route path="/software" element={<Page><SoftwareProjectsPage /></Page>} />
+          <Route path="/programacao" element={<Page><SoftwareProjectsPage /></Page>} />
+          <Route path="/hardware" element={<Page><HardwareProjectsPage /></Page>} />
+          <Route path="/macropad" element={<Page><MacropadPage /></Page>} />
+          <Route path="*" element={<Page><NotFound /></Page>} />
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 };
