@@ -12,7 +12,7 @@
   --panel:#151518;
   --panel-2:#1c1c21;
   --ink:#f4f4f5;
-  --muted:#9b9ba6;
+  --muted:#fffcfb;
   --faint:#6a6a74;
   --line:#2a2a31;
   --line-2:#3a3a44;
@@ -50,7 +50,7 @@ body[data-theme="blue"]{ --accent:#2a6dff; --accent-2:#5b8cff; --accent-press:#1
 body[data-theme="red"], body[data-theme="pink"]{
   /* tema claro (bege) */
   --bg:#efe6d5; --bg-2:#e7dcc8; --panel:#fbf5ea; --panel-2:#f2e9d8;
-  --ink:#1d1a16; --muted:#6e655a; --faint:#9b9183;
+  --ink:#1d1a16; --muted:#3f3930; --faint:#9b9183;
   --line:#dccfb8; --line-2:#caba9e;
   --band:#e8ddc7; --inset:#fbf5ea; --grid:rgba(0,0,0,.045);
 }
