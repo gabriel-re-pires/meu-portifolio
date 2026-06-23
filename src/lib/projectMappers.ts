@@ -34,8 +34,8 @@ export const hardwareToGallery = (p: HardwareProject, lang: Lang, t: T): Gallery
   detailHref: p.detailHref,
   group: p.group,
   media: [
-    ...(p.videoSrc ? [{ type: "video" as const, src: p.videoSrc }] : []),
     ...p.screenshots.map((s) => ({ type: "image" as const, src: s })),
+    ...(p.videoSrc ? [{ type: "video" as const, src: p.videoSrc }] : []),
   ],
   techStack: p.techStack,
   highlights: p.highlights.map((h) => h[lang]),

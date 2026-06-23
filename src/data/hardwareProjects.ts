@@ -107,6 +107,7 @@ export const hardwareProjects: HardwareProject[] = [
       { pt: "Bateria Li-ion recarregável", zh: "可充电锂电池", en: "Rechargeable Li-ion battery", ja: "充電式Li-ionバッテリー" },
     ],
     githubLink: "https://github.com/gabriel-re-pires/Rob-Seguidor-de-Linha",
+    videoSrc: "https://youtube.com/shorts/KOMsR1Fa0WY?feature=share",
     featured: false,
   },
   {
