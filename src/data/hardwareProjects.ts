@@ -106,6 +106,7 @@ export const hardwareProjects: HardwareProject[] = [
       { pt: "Controle Xbox por Bluetooth", zh: "蓝牙 Xbox 手柄控制", en: "Xbox control over Bluetooth", ja: "BluetoothのXbox操作" },
       { pt: "Bateria Li-ion recarregável", zh: "可充电锂电池", en: "Rechargeable Li-ion battery", ja: "充電式Li-ionバッテリー" },
     ],
+    githubLink: "https://github.com/gabriel-re-pires/Rob-Seguidor-de-Linha",
     featured: false,
   },
   {
